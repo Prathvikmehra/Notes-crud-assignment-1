@@ -94,9 +94,39 @@ const getNoteById = async (req, res) => {
   }
 };
 
+// ─── 5. PUT /api/notes/:id — Replace note completely ──────
+const replaceNote = async (req, res) => {
+  try {
+    const { id } = req.params;
+
+    if (!isValidId(id)) {
+      return res.status(400).json({ success: false, message: "Invalid ObjectId", data: null });
+    }
+
+    const note = await Note.findByIdAndUpdate(id, req.body, {
+      new: true,
+      overwrite: true,
+      runValidators: true,
+    });
+
+    if (!note) {
+      return res.status(404).json({ success: false, message: "Note not found", data: null });
+    }
+
+    return res.status(200).json({
+      success: true,
+      message: "Note replaced successfully",
+      data: note,
+    });
+  } catch (err) {
+    return res.status(500).json({ success: false, message: err.message, data: null });
+  }
+};
+
 module.exports = {
   createNote,
   bulkCreateNotes,
   getAllNotes,
   getNoteById,
+  replaceNote,
 };

@@ -12,4 +12,7 @@ router.post("/", noteController.createNote);
 router.get("/", noteController.getAllNotes);
 router.get("/:id", noteController.getNoteById);
 
+// PUT & PATCH
+router.put("/:id", noteController.replaceNote);
+
 module.exports = router;
