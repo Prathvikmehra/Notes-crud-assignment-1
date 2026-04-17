@@ -1,0 +1,7 @@
+const express = require("express");
+const router = express.Router();
+const noteController = require("../controllers/note.controller");
+
+// IMPORTANT: /bulk routes MUST come before /:id to avoid "bulk" being treated as a MongoDB ObjectId
+
+module.exports = router;
