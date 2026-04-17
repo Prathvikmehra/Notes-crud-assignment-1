@@ -8,4 +8,7 @@ const noteController = require("../controllers/note.controller");
 router.post("/bulk", noteController.bulkCreateNotes);
 router.post("/", noteController.createNote);
 
+// GET
+router.get("/", noteController.getAllNotes);
+
 module.exports = router;
