@@ -7,4 +7,6 @@ app.use(express.json());
 
 app.use("/api/notes", noteRoutes);
 
+
+
 module.exports = app;
