@@ -1,10 +1,10 @@
 const mongoose = require("mongoose");
 const Note = require("../models/note.model");
 
-// ─── Helper ───────────────────────────────────────────────
+
 const isValidId = (id) => mongoose.Types.ObjectId.isValid(id);
 
-// ─── 1. POST /api/notes — Create a single note ────────────
+// 1. POST /api/notes — Create a single note 
 const createNote = async (req, res) => {
   try {
     const { title, content, category, isPinned } = req.body;
@@ -29,7 +29,7 @@ const createNote = async (req, res) => {
   }
 };
 
-// ─── 2. POST /api/notes/bulk — Create multiple notes ──────
+// 2. POST /api/notes/bulk — Create multiple notes 
 const bulkCreateNotes = async (req, res) => {
   try {
     const { notes } = req.body;
@@ -54,7 +54,7 @@ const bulkCreateNotes = async (req, res) => {
   }
 };
 
-// ─── 3. GET /api/notes — Get all notes ────────────────────
+// 3. GET /api/notes — Get all notes 
 const getAllNotes = async (req, res) => {
   try {
     const notes = await Note.find();
@@ -69,7 +69,7 @@ const getAllNotes = async (req, res) => {
   }
 };
 
-// ─── 4. GET /api/notes/:id — Get note by ID ───────────────
+// 4. GET /api/notes/:id — Get note by ID
 const getNoteById = async (req, res) => {
   try {
     const { id } = req.params;
@@ -94,7 +94,7 @@ const getNoteById = async (req, res) => {
   }
 };
 
-// ─── 5. PUT /api/notes/:id — Replace note completely ──────
+// 5. PUT /api/notes/:id — Replace note completely 
 const replaceNote = async (req, res) => {
   try {
     const { id } = req.params;
@@ -123,7 +123,7 @@ const replaceNote = async (req, res) => {
   }
 };
 
-// ─── 6. PATCH /api/notes/:id — Partial update ─────────────
+// 6. PATCH /api/notes/:id — Partial update 
 const updateNote = async (req, res) => {
   try {
     const { id } = req.params;
@@ -159,7 +159,7 @@ const updateNote = async (req, res) => {
   }
 };
 
-// ─── 7. DELETE /api/notes/:id — Delete a single note ──────
+// 7. DELETE /api/notes/:id — Delete a single note
 const deleteNote = async (req, res) => {
   try {
     const { id } = req.params;
@@ -184,7 +184,7 @@ const deleteNote = async (req, res) => {
   }
 };
 
-// ─── 8. DELETE /api/notes/bulk — Delete multiple notes ────
+// 8. DELETE /api/notes/bulk — Delete multiple notes 
 const bulkDeleteNotes = async (req, res) => {
   try {
     const { ids } = req.body;
