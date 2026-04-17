@@ -14,5 +14,6 @@ router.get("/:id", noteController.getNoteById);
 
 // PUT & PATCH
 router.put("/:id", noteController.replaceNote);
+router.patch("/:id", noteController.updateNote);
 
 module.exports = router;
