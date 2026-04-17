@@ -10,5 +10,6 @@ router.post("/", noteController.createNote);
 
 // GET
 router.get("/", noteController.getAllNotes);
+router.get("/:id", noteController.getNoteById);
 
 module.exports = router;
