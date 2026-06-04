@@ -123,7 +123,7 @@ const replaceNote = async (req, res) => {
   }
 };
 
-// 6. PATCH /api/notes/:id — Partial update 
+// 6. PATCH /api/notes/:id — Partial update
 const updateNote = async (req, res) => {
   try {
     const { id } = req.params;
@@ -159,7 +159,7 @@ const updateNote = async (req, res) => {
   }
 };
 
-// 7. DELETE /api/notes/:id — Delete a single note
+// 7. DELETE /api/notes/:id — Delete a single note 
 const deleteNote = async (req, res) => {
   try {
     const { id } = req.params;
